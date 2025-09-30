@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { RouteConfigLoadEnd, Router } from '@angular/router';
+import { OpenWeather } from '../../service/open-weather.service';
+
 
 @Component({
   selector: 'app-clima',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClimaComponent implements OnInit {
 
+  navegador = inject(Router);
+  openWeatherService = inject(OpenWeather);
+
   constructor() { }
 
   ngOnInit() {
+    this.openWeatherService.buscarInfoClimaCidadeAtual();
   }
 
+  navegarParaTeladePesquisa() {
+    this.navegador.navigate(['/pesquisa']);
+  }
+
+
 }
+
