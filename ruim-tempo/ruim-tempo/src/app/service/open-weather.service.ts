@@ -17,7 +17,7 @@ export class OpenWeatherService {
 
   buscarInfoClimaCidadeAtual (): Observable<WeatherResponse> {
 
-    const urlCompleta = this.apiUrl + '?q=Dois%20Vizinhos&appid=' + this.apiKey + '&lang=pt_br&units=metrics';
+    const urlCompleta = this.apiUrl + '?q=Dois%20Vizinhos&appid=' + this.apiKey + '&lang=pt_br&units=metric';
     console.log(urlCompleta);
 
     return this.http.get<WeatherResponse>(urlCompleta);
